@@ -1,0 +1,53 @@
+-- Drop database if exists gestion_personne;
+
+CREATE DATABASE IF NOT EXISTS gestion_personne;
+
+USE gestion_personne;
+
+CREATE TABLE etudiant (
+    id INT,
+    nom VARCHAR(50) NOT NULL,
+    postnom VARCHAR(50),
+    prenom VARCHAR(50),
+    sexe VARCHAR(1) DEFAULT 'M' NOT NULL,
+    matricule VARCHAR(20),
+    PRIMARY KEY (id),
+    UNIQUE KEY uk_personne (nom, postnom, prenom)
+);
+
+SELECT * FROM etudiant;
+
+CREATE TABLE telephone (
+    id INT,
+    id_proprietaire INT NOT NULL,
+    initial VARCHAR(4) NOT NULL,
+    numero VARCHAR(9) NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_personne_telephone FOREIGN KEY (id_proprietaire) REFERENCES etudiant(id)
+);
+
+SELECT * FROM telephone;
+
+CREATE TABLE adresse (
+    id INT,
+    quartier VARCHAR(50),
+    commune VARCHAR(50),
+    ville VARCHAR(50),
+    pays VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+SELECT * FROM adresse;
+
+CREATE TABLE domicile (
+    id INT,
+    id_personne INT NOT NULL,
+    id_adresse INT NOT NULL,
+    avenue VARCHAR(50),
+    numero_avenue INT,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_personne_domicile FOREIGN KEY (id_personne) REFERENCES etudiant(id),
+    CONSTRAINT fk_addresse_domicile FOREIGN KEY (id_adresse) REFERENCES adresse(id)
+);
+
+SELECT * FROM domicile;

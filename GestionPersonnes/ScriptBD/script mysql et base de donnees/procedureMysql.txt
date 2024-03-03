@@ -1,0 +1,167 @@
+-- Insert or Update etudiant
+DELIMITER //
+CREATE PROCEDURE sp_insert_etudiant (
+    in_id INT,
+    in_nom VARCHAR(50),
+    in_postnom VARCHAR(50),
+    in_prenom VARCHAR(50),
+    in_sexe VARCHAR(1),
+    in_matricule VARCHAR(20)
+)
+BEGIN
+    DECLARE id_count INT;
+    SELECT COUNT(*) INTO id_count FROM etudiant WHERE id = in_id;
+    
+    IF id_count = 0 THEN
+        INSERT INTO etudiant(id, nom, postnom, prenom, sexe, matricule) 
+        VALUES (in_id, in_nom, in_postnom, in_prenom, in_sexe, in_matricule);
+    ELSE
+        UPDATE etudiant 
+        SET nom = in_nom, postnom = in_postnom, prenom = in_prenom, sexe = in_sexe, matricule = in_matricule 
+        WHERE id = in_id;
+    END IF;
+END //
+DELIMITER ;
+
+-- Delete etudiant
+DELIMITER //
+CREATE PROCEDURE sp_delete_etudiant (
+    in_id INT
+)
+BEGIN
+    IF EXISTS (SELECT * FROM etudiant WHERE id = in_id) THEN
+        DELETE FROM etudiant WHERE id = in_id;
+    END IF;
+END //
+DELIMITER ;
+
+-- Select all etudiant
+DELIMITER //
+CREATE PROCEDURE sp_select_etudiant ()
+BEGIN
+    SELECT id, nom, postnom, prenom, sexe, matricule FROM etudiant ORDER BY nom ASC;
+END //
+DELIMITER ;
+
+-- Select one etudiant
+DELIMITER //
+CREATE PROCEDURE sp_select_etudiants (
+    in_id INT
+)
+BEGIN
+    SELECT id, nom, postnom, prenom, sexe, matricule FROM etudiant WHERE id = in_id;
+END //
+DELIMITER ;
+
+-- Insert or Update telephone
+DELIMITER //
+CREATE PROCEDURE sp_insert_telephone (
+    in_id INT,
+    in_id_proprietaire INT,
+    in_initial VARCHAR(4),
+    in_numero VARCHAR(9)
+)
+BEGIN
+    DECLARE id_count INT;
+    SELECT COUNT(*) INTO id_count FROM telephone WHERE id = in_id;
+    
+    IF id_count = 0 THEN
+        INSERT INTO telephone(id, id_proprietaire, initial, numero) 
+        VALUES (in_id, in_id_proprietaire, in_initial, in_numero);
+    ELSE
+        UPDATE telephone 
+        SET id_proprietaire = in_id_proprietaire, initial = in_initial, numero = in_numero 
+        WHERE id = in_id;
+    END IF;
+END //
+DELIMITER ;
+
+-- Delete telephone
+DELIMITER //
+CREATE PROCEDURE sp_delete_telephone (
+    in_id INT
+)
+BEGIN
+    IF EXISTS (SELECT * FROM telephone WHERE id = in_id) THEN
+        DELETE FROM telephone WHERE id = in_id;
+    END IF;
+END //
+DELIMITER ;
+
+-- Select all telephone
+DELIMITER //
+CREATE PROCEDURE sp_select_telephones ()
+BEGIN
+    SELECT id, id_proprietaire, initial, numero FROM telephone ORDER BY numero ASC;
+END //
+DELIMITER ;
+
+-- Select all telephone of etudiant
+DELIMITER //
+CREATE PROCEDURE sp_select_telephones_personne (
+    in_id_personne INT
+)
+BEGIN
+    SELECT id, id_proprietaire, initial, numero 
+    FROM telephone 
+    WHERE id_proprietaire = in_id_personne 
+    ORDER BY numero ASC;
+END //
+DELIMITER ;
+
+-- Select one etudiant
+DELIMITER //
+CREATE PROCEDURE sp_select_telephone (
+    in_id INT
+)
+BEGIN
+    SELECT id, id_proprietaire, initial, numero FROM telephone WHERE id = in_id;
+END //
+DELIMITER ;
+
+-- Stored Procedure for report of etudiants
+DELIMITER //
+CREATE PROCEDURE sp_liste_etudiants ()
+BEGIN
+    SELECT etudiant.id, CONCAT(etudiant.nom, ' ', COALESCE(etudiant.postnom, ''), ' ', COALESCE(etudiant.prenom, '')) AS nom,
+    etudiant.sexe, telephone.id AS idtel, CONCAT(telephone.initial, telephone.numero) AS numero
+    FROM etudiant
+    LEFT OUTER JOIN telephone 
+    ON etudiant.id = telephone.id_proprietaire;
+END //
+DELIMITER ;
+
+-- Test Insert and Update
+CALL sp_insert_etudiant(1, 'Isamuna', 'Nkembo', 'Josue', 'M', '22LIAGELJ253');
+CALL sp_insert_etudiant(2, 'Kibambe', 'Kabululu', 'Nathan', 'M', '22LIAGELJ620114');
+CALL sp_insert_etudiant(3, 'Kyakimwa', 'Ndivito', 'Milka', 'F', '22LIAGELJ620354');
+
+CALL sp_insert_telephone(1, 1, '+250', '785623146');
+CALL sp_insert_telephone(2, 1, '+243', '0812700368');
+CALL sp_insert_telephone(3, 2, '+243', '985645235');
+CALL sp_insert_telephone(4, 3, '+243', '815790584');
+CALL sp_insert_telephone(5, 3, '+242', '808256231');
+
+SELECT * FROM telephone;
+
+-- Test delete
+-- CALL sp_delete_telephone(1);
+-- SELECT * FROM telephone;
+
+-- CALL sp_delete_etudiant(3);
+-- SELECT * FROM etudiant;
+
+-- Test Select all
+-- CALL sp_select_etudiants;
+
+CALL sp_select_telephones;
+
+-- Test Select One
+CALL sp_select_etudiants(2);
+
+CALL sp_select_telephone(4);
+
+CALL sp_select_telephones_personne(2);
+
+-- Test Select report
+CALL sp_liste_etudiants;

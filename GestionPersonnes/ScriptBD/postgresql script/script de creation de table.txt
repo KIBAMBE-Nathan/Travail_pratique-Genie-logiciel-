@@ -1,0 +1,53 @@
+-- drop database gestion_personne;
+
+CREATE DATABASE gestion_personne;
+
+\c gestion_personne;
+
+CREATE TABLE etudiant
+(
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    postnom VARCHAR(50),
+    prenom VARCHAR(50),
+    sexe CHAR(1) DEFAULT 'M' NOT NULL,
+    matricule VARCHAR(20),
+    CONSTRAINT uk_personne UNIQUE(nom, postnom, prenom)
+);
+
+SELECT * FROM etudiant;
+
+CREATE TABLE telephone
+(
+    id SERIAL PRIMARY KEY,
+    id_proprietaire INT NOT NULL,
+    initial VARCHAR(4) NOT NULL,
+    numero VARCHAR(9) NOT NULL,
+    CONSTRAINT fk_personne_telephone FOREIGN KEY(id_proprietaire) REFERENCES etudiant(id)
+);
+
+SELECT * FROM telephone;
+
+CREATE TABLE adresse
+(
+    id SERIAL PRIMARY KEY,
+    quartier VARCHAR(50),
+    commune VARCHAR(50),
+    ville VARCHAR(50),
+    pays VARCHAR(50) NOT NULL
+);
+
+SELECT * FROM adresse;
+
+CREATE TABLE domicile
+(
+    id SERIAL PRIMARY KEY,
+    id_personne INT NOT NULL,
+    id_adresse INT NOT NULL,
+    avenue VARCHAR(50),
+    numero_avenue INT,
+    CONSTRAINT fk_personne_domicile FOREIGN KEY(id_personne) REFERENCES etudiant(id),
+    CONSTRAINT fk_addresse_domicile FOREIGN KEY(id_adresse) REFERENCES adresse(id)
+);
+
+SELECT * FROM domicile;
