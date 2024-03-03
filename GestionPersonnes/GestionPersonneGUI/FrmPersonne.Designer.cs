@@ -87,6 +87,8 @@
             this.txtIDTel = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtAdresse = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -116,6 +118,8 @@
             this.splitContainer1.Panel1.Controls.Add(this.txtMatricule);
             this.splitContainer1.Panel1.Controls.Add(this.label9);
             this.splitContainer1.Panel1.Controls.Add(this.txtPrenom);
+            this.splitContainer1.Panel1.Controls.Add(this.txtAdresse);
+            this.splitContainer1.Panel1.Controls.Add(this.label10);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.txtName);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
@@ -133,7 +137,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.txtIDTel);
             this.splitContainer1.Panel2.Controls.Add(this.label8);
             this.splitContainer1.Panel2.Controls.Add(this.label7);
-            this.splitContainer1.Size = new System.Drawing.Size(1223, 545);
+            this.splitContainer1.Size = new System.Drawing.Size(1223, 568);
             this.splitContainer1.SplitterDistance = 726;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
@@ -149,7 +153,7 @@
             this.colPostnom,
             this.colPrenom,
             this.colNomComplet});
-            this.dgvPersonne.Location = new System.Drawing.Point(19, 260);
+            this.dgvPersonne.Location = new System.Drawing.Point(19, 289);
             this.dgvPersonne.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPersonne.Name = "dgvPersonne";
             this.dgvPersonne.RowHeadersVisible = false;
@@ -445,7 +449,7 @@
             this.colInitial,
             this.colNumero,
             this.dataGridViewTextBoxColumn5});
-            this.dgvTelephone.Location = new System.Drawing.Point(20, 260);
+            this.dgvTelephone.Location = new System.Drawing.Point(20, 289);
             this.dgvTelephone.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTelephone.Name = "dgvTelephone";
             this.dgvTelephone.RowHeadersVisible = false;
@@ -676,11 +680,29 @@
             this.label7.TabIndex = 23;
             this.label7.Text = "Initial :";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(16, 239);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 16);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Adresse :";
+            // 
+            // txtAdresse
+            // 
+            this.txtAdresse.Location = new System.Drawing.Point(97, 236);
+            this.txtAdresse.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAdresse.Name = "txtAdresse";
+            this.txtAdresse.Size = new System.Drawing.Size(615, 22);
+            this.txtAdresse.TabIndex = 1;
+            // 
             // FrmPersonne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1223, 545);
+            this.ClientSize = new System.Drawing.Size(1223, 568);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -765,5 +787,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.TextBox txtMatricule;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtAdresse;
+        private System.Windows.Forms.Label label10;
     }
 }

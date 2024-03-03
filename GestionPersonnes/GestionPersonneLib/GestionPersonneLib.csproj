@@ -78,7 +78,7 @@
     <Compile Include="Adresse.cs" />
     <Compile Include="IPersonne.cs" />
     <Compile Include="ITelephone.cs" />
-    <Compile Include="Personne.cs" />
+    <Compile Include="Etudiant.cs" />
     <Compile Include="Sexe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />

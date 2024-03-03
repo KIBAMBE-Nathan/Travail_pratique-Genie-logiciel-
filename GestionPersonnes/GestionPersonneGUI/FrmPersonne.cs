@@ -138,6 +138,7 @@ namespace GestionPersonneGUI
                 etudiant.Postnom = txtPNane.Text;
                 etudiant.Prenom = txtPrenom.Text;
                 etudiant.Prenom = txtMatricule.Text;
+                etudiant.Adresse = txtAdresse.Text;
                 etudiant.Sex = cboSexe.Text.Equals(Sexe.Masculin.ToString()) ? Sexe.Masculin : Sexe.Féminin;
 
                 etudiant.Enregistrer(etudiant);
