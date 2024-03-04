@@ -57,7 +57,7 @@
             this.cboDBType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDBType.FormattingEnabled = true;
             this.cboDBType.Location = new System.Drawing.Point(181, 7);
-            this.cboDBType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboDBType.Margin = new System.Windows.Forms.Padding(4);
             this.cboDBType.Name = "cboDBType";
             this.cboDBType.Size = new System.Drawing.Size(345, 24);
             this.cboDBType.TabIndex = 0;
@@ -76,7 +76,7 @@
             // txtServer
             // 
             this.txtServer.Location = new System.Drawing.Point(181, 37);
-            this.txtServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtServer.Margin = new System.Windows.Forms.Padding(4);
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(345, 22);
             this.txtServer.TabIndex = 1;
@@ -85,7 +85,7 @@
             // txtUser
             // 
             this.txtUser.Location = new System.Drawing.Point(181, 94);
-            this.txtUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUser.Margin = new System.Windows.Forms.Padding(4);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(345, 22);
             this.txtUser.TabIndex = 3;
@@ -104,7 +104,7 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(181, 122);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(345, 22);
@@ -123,7 +123,7 @@
             // txtDB
             // 
             this.txtDB.Location = new System.Drawing.Point(181, 65);
-            this.txtDB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDB.Margin = new System.Windows.Forms.Padding(4);
             this.txtDB.Name = "txtDB";
             this.txtDB.Size = new System.Drawing.Size(345, 22);
             this.txtDB.TabIndex = 2;
@@ -145,7 +145,7 @@
             this.CmdConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CmdConnect.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.CmdConnect.Location = new System.Drawing.Point(181, 151);
-            this.CmdConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CmdConnect.Margin = new System.Windows.Forms.Padding(4);
             this.CmdConnect.Name = "CmdConnect";
             this.CmdConnect.Size = new System.Drawing.Size(135, 28);
             this.CmdConnect.TabIndex = 5;
@@ -159,7 +159,7 @@
             this.CmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CmdCancel.ForeColor = System.Drawing.Color.Maroon;
             this.CmdCancel.Location = new System.Drawing.Point(407, 151);
-            this.CmdCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CmdCancel.Margin = new System.Windows.Forms.Padding(4);
             this.CmdCancel.Name = "CmdCancel";
             this.CmdCancel.Size = new System.Drawing.Size(121, 28);
             this.CmdCancel.TabIndex = 6;
@@ -186,8 +186,9 @@
             this.Controls.Add(this.cboDBType);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmConnexion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Connexion à la Base des Données";
             this.Load += new System.EventHandler(this.frmConnexion_Load);
             this.ResumeLayout(false);

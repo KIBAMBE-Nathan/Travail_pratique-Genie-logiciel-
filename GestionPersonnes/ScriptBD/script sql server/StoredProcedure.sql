@@ -142,3 +142,11 @@ exec sp_select_telephones_personne 2
 --Test Select report
 exec sp_liste_etudiants
 
+
+
+--Test Insert and Update
+exec sp_insert_etudiant 4,'Bahati','Lobha','Dieudonne','M','22LIAGELJ252'
+exec sp_insert_etudiant 5,'Aveba','Dumatsi','Gael','M','22LIAGELJ620111'
+exec sp_insert_etudiant 6,'Maki','Buli','Tisserand','M','22LIAGELJ620350'
+select * from etudiant
+

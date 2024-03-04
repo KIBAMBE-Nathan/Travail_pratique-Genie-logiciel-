@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 02 mars 2024 à 14:54
+-- Généré le : lun. 04 mars 2024 à 10:37
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 7.3.33
 
@@ -148,7 +148,9 @@ CREATE TABLE `etudiant` (
 INSERT INTO `etudiant` (`id`, `nom`, `postnom`, `prenom`, `sexe`, `matricule`) VALUES
 (1, 'Isamuna', 'Nkembo', 'Josue', 'M', '22LIAGELJ253'),
 (2, 'Kibambe', 'Kabululu', 'Nathan', 'M', '22LIAGELJ620114'),
-(3, 'Kyakimwa', 'Ndivito', 'Milka', 'F', '22LIAGELJ620354');
+(3, 'Kyakimwa', 'Ndivito', 'Milka', 'F', '22LIAGELJ620354'),
+(4, 'Katembo', 'Mwitirwa', 'Jacque', 'M', '22liagelj620333'),
+(5, 'Kambale', 'Kangithi', 'Heritier', 'M', '22liagelj620113');
 
 -- --------------------------------------------------------
 
